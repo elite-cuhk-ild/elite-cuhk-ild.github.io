@@ -1,0 +1,137 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#custom-logos {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#custom-logos img {
+    height: 50px;
+    margin: 0 15px;
+}
+
+#custom-logos img[src="TemplateData/logo_example.png"] {
+    height: 80px; /* Example of setting custom size for logo */
+}
+
+/* Hide custom logos in fullscreen mode */
+.fullscreen #custom-logos {
+    display: none;
+}
+
+/* Hide custom logos in mobile mode */
+#custom-logos.unity-mobile {
+    display: none;
+}
+
+#unity-container {
+    position: absolute
+}
+
+#unity-container.unity-desktop {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#unity-container.unity-mobile {
+    position: fixed;
+    width: 100%;
+    height: 100%
+}
+
+#unity-canvas {
+    background: #231F20;
+    border-radius: 15px; /* Added rounded corners */
+    overflow: hidden; /* Ensure content respects rounded corners */
+}
+
+#unity-canvas:focus {
+    outline: none; /* Remove black focus outline */
+}
+
+#unity-canvas:fullscreen {
+    border-radius: 0;
+}
+
+.unity-mobile #unity-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+}
+
+#unity-loading-bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none
+}
+
+#unity-logo {
+    width: 154px;
+    height: 130px;
+    background: url('unity-logo-dark.png') no-repeat center
+}
+
+#unity-progress-bar-empty {
+    width: 141px;
+    height: 18px;
+    margin-top: 10px;
+    margin-left: 6.5px;
+    background: url('progress-bar-empty-dark.png') no-repeat center
+}
+
+#unity-progress-bar-full {
+    width: 0%;
+    height: 18px;
+    margin-top: 10px;
+    background: url('progress-bar-full-dark.png') no-repeat center
+}
+
+#unity-footer {
+    position: relative
+}
+
+.unity-mobile #unity-footer {
+    display: none
+}
+
+#unity-build-title {
+    float: left;
+    margin-left: 10px;
+    line-height: 38px;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #2D143C;
+}
+
+#unity-fullscreen-button {
+    cursor: pointer;
+    float: right;
+    width: 38px;
+    height: 38px;
+    background: url('fullscreen_button.png') no-repeat center
+}
+
+#unity-warning {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%);
+    background: white;
+    padding: 10px;
+    display: none
+}
