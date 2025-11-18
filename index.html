@@ -1,92 +1,161 @@
-<!DOCTYPE html>
-<html lang="en-us">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>VLE | eLab Safety Escape Room - Biological Research Lab</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <title>eLab Safety Escape Rooms</title>
+    <style>
+        :root {
+            --box-gap-horizontal: 50px;
+            --box-gap-vertical: 50px;
+            --title-to-boxes-gap: 150px;
+            --boxes-to-logos-gap: 100px;
+            --logo-gap-horizontal: 40px;
+            --logo-gap-vertical: 20px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .title {
+            margin: 40px 20px 0;
+            padding: 16px 40px;
+            background: white;
+            color: #222;
+            font-size: 2.2rem;
+            font-weight: 700;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 90%;
+        }
+
+            .title span.green {
+                color: #78d255;
+            }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--box-gap-horizontal);
+            padding: 20px;
+            max-width: 100%;
+            margin-top: var(--title-to-boxes-gap);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                gap: var(--box-gap-vertical);
+            }
+        }
+
+        .box {
+            position: relative;
+            width: 480px;
+            height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            flex: 0 0 auto;
+        }
+
+            .box:hover {
+                transform: scale(1.08);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            }
+
+            .box img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .box .label {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 20px;
+                background: linear-gradient(transparent, rgba(0,0,0,0.6));
+                color: white;
+                font-size: 1.6rem;
+                font-weight: 600;
+                text-align: center;
+                text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+                pointer-events: none;
+            }
+
+        @media (max-width: 500px) {
+            .box {
+                width: 300px;
+                height: 200px;
+            }
+
+                .box .label {
+                    font-size: 1.2rem;
+                    padding: 15px;
+                }
+
+            .title {
+                font-size: 1.2rem;
+                padding: 14px 30px;
+            }
+        }
+
+        #custom-logos {
+            display: flex;
+            flex-wrap: wrap; /* allows wrapping */
+            justify-content: center; /* always perfectly centered */
+            align-items: center;
+            gap: var(--logo-gap-horizontal);
+            margin-top: var(--boxes-to-logos-gap);
+            padding: 20px;
+        }
+
+            #custom-logos img {
+                height: 50px;
+                max-width: 200px; /* prevent huge logos from breaking layout */
+                object-fit: contain;
+            }
+
+                #custom-logos img[src="./assets/images/logo_sbs.png"] {
+                    height: 80px;
+                }
+    </style>
 </head>
 <body>
-    <div id="unity-container" class="unity-desktop">
-        <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-        <div id="unity-loading-bar">
-            <div id="unity-logo"></div>
-            <div id="unity-progress-bar-empty">
-                <div id="unity-progress-bar-full"></div>
-            </div>
-        </div>
-        <div id="unity-warning"> </div>
-        <div id="unity-footer">
-            <div id="unity-fullscreen-button"></div>
-            <div id="unity-build-title">eLab Safety Escape Room - Biological Research Lab</div>
-        </div>
+
+    <div class="title"><span class="green">e</span>Lab Safety Escape Rooms</div>
+
+    <div class="container">
+        <a href="./rooms/elabsafety_chem/index.html" class="box">
+            <img src="./assets/images/thumbnail_chem_lab.png" alt="ChemLab">
+            <div class="label">Chemistry Lab</div>
+        </a>
+        <a href="./rooms/elabsafety_bio/index.html" class="box">
+            <img src="./assets/images/thumbnail_bio_lab_v3.png" alt="BioLab">
+            <div class="label">Biological Research Lab</div>
+        </a>
     </div>
     <div id="custom-logos">
-        <img src="TemplateData/logo_cuhk.png" alt="Logo CUHK">
-        <img src="TemplateData/logo_elite.png" alt="Logo ELITE">
-        <img src="TemplateData/VLE_Logo_v1_text.png" alt="Logo VLE">
+        <img src="./assets/images/logo_cuhk.png" alt="Logo CUHK">
+        <img src="./assets/images/logo_medicine_horizontal.png" alt="Logo CUHK Med">
+        <img src="./assets/images/logo_sbs.png" alt="Logo SBS">
+        <img src="./assets/images/logo_elite.png" alt="Logo ELITE">
+        <img src="./assets/images/VLE_Logo_v1_text.png" alt="Logo VLE">
     </div>
-    <script>
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
-      var customLogos = document.querySelector("#custom-logos"); // Select custom-logos div
 
-      function unityShowBanner(msg, type) {
-        // ... existing code ...
-      }
-
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/elabsafety_bio_2025111801.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/elabsafety_bio_2025111801.data",
-        frameworkUrl: buildUrl + "/elabsafety_bio_2025111801.framework.js",
-        codeUrl: buildUrl + "/elabsafety_bio_2025111801.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "CUHK",
-        productName: "eLab Safety Escape Room - Biological Research Lab",
-        productVersion: "1.0.0",
-        showBanner: unityShowBanner,
-      };
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-        customLogos.className += " unity-mobile"; // Add unity-mobile to custom-logos
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-
-      document.body.appendChild(script);
-    </script>
 </body>
 </html>
